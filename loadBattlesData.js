@@ -2,15 +2,22 @@
 // use local file
 var battles ="data/battles.csv";
 
-//printing out max and all the data from csv file 
+//printing out max and all the data from csv file
 d3.csv(battles, function(error, data) {
     console.log(data);
     data.forEach(function(d) {
         d.battle_number = +d.battle_number;
     });
 
+    //find the min from csv file
+    var min= d3.min(data,function(d){return d.battle_number;});
+    //find the max from csv file
     var maximum = d3.max(data, function(d) { return d.battle_number; });
-    console.log("max is " + maximum);
+    // find the average from csv file
+    var average = d3.mean(data,function(d){ return d.battle_number;});
+    console.log("the max battle is " + maximum);
+    console.log("the min battle is "+ min);
+    console.log("the average battle number is "+average);
 });
 
 
