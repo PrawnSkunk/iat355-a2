@@ -13,8 +13,6 @@
       })
       .get(function(error, data){
 
-
-
           drawCircles(data);
       })
 
