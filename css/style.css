@@ -200,77 +200,6 @@ div {
     display: table;
 }
 
-/* Commission Panel
-   ========================================================================== */
-
-.slot-panel {
-    line-height: 2em;
-    width: 28em;
-    margin-left: auto;
-    margin-right: auto;
-    padding-top: 1em;
-    padding-bottom: 1em;
-    border-radius: 1em;
-    border: 3px solid var(--primary-light);
-    text-align: center;
-    margin-bottom: 1em;
-}
-
-.commission-button {
-    border: none;
-    color: white;
-    width: fit-content;
-    padding: 10px;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px;
-    border-radius: 5px;
-}
-
-.commission-button a {
-    color: white;
-    text-decoration: none;
-}
-
-.commission-button.open {
-    background-color: var(--primary-light);
-    cursor: pointer;
-    -webkit-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-}
-
-.commission-button:hover.open {
-    border-color: var(--primary-dark);
-    background-color: var(--primary-dark);
-}
-
-.commission-button.closed {
-    background-color: var(--lighter);
-    pointer-events: none;
-}
-
-.slots {
-    text-align: left;
-}
-
-.status {
-    font-size: 1.5em;
-    font-weight: 600;
-}
-
-.open {
-    color: var(--open);
-}
-
-.closed {
-    color: var(--closed);
-}
-
-.block ul li {
-    line-height: 2em;
-}
-
 /* Footer
    ========================================================================== */
 
@@ -279,26 +208,12 @@ div {
     text-align: center;
 }
 
-/* Other
-   ========================================================================== */
-
-.photo {
-    width: 125px;
-    border-radius: 1em;
-    float: left;
-    margin-top: 1em;
-    margin-right: 1.25em;
-}
-
-.center {
-    text-align: center;
-}
-
 /* Visualizations
    ========================================================================== */
 
 .chart-container {
 }
+
 .bar {
     fill: var(--primary-light);
 }

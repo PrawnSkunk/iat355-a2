@@ -9,12 +9,7 @@
  */
 
 // Set Margin
-var margin = {
-        top: 40,
-        right: 40,
-        bottom: 40,
-        left: 40
-    },
+var margin = { top: 40,  right: 40,  bottom: 40, left: 40},
     width = 900 - margin.left - margin.right,
     height = 600 - margin.top - margin.bottom;
 
@@ -68,7 +63,7 @@ d3.csv("data/battles.csv", function(error, data) {
         return d.defender_size;
     })]);
 
-    // append the rectangles for the bar chart
+    // Append the rectangles for the bar chart
     svg.selectAll(".bar")
         .data(data)
         .enter().append("rect")
@@ -84,12 +79,20 @@ d3.csv("data/battles.csv", function(error, data) {
             return height - y(d.defender_size);
         });
 
-    // add the x Axis
+    // Add the x Axis
     svg.append("g")
+        .attr("class", "x-axis")
         .attr("transform", "translate(0," + height + ")")
-        .call(d3.axisBottom(x));
+        .call(d3.axisBottom(x))
+        .selectAll("text")
+        .attr("y", 0)
+        .attr("x", 9)
+        .attr("dy", ".35em")
+        .attr("transform", "rotate(-90)")
+        .style("text-anchor", "start");
 
-    // add the y Axis
+    // Add the y Axis
     svg.append("g")
+        .attr("class", "y-axis")
         .call(d3.axisLeft(y));
 });
