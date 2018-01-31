@@ -1,17 +1,10 @@
-/**
- * NOTES
- * -----------------------------------------
- * Tutorial: http://learnjsdata.com/getting_started.html
- *
- * 1. Lowest to highest death toll(SUM), and death rate(%).
- * 2. Average a set of values" could be deadliest areas for repeat battles.
- * 3. Records match a particular dimension" could be which battles Nobility died in.
- */
+/* Largest Defending Army
+   ========================================================================== */
 
 // Set Margin
 var margin = { top: 40,  right: 40,  bottom: 40, left: 40},
-    width = 900 - margin.left - margin.right,
-    height = 600 - margin.top - margin.bottom;
+    width = 560 - margin.left - margin.right,
+    height = 400 - margin.top - margin.bottom;
 
 // Set Range
 var x = d3.scaleBand()
@@ -78,7 +71,6 @@ d3.csv("data/battles.csv", function(error, data) {
         .attr("height", function(d) {
             return height - y(d.defender_size);
         });
-
     // Add the x Axis
     svg.append("g")
         .attr("class", "x-axis")
@@ -96,3 +88,6 @@ d3.csv("data/battles.csv", function(error, data) {
         .attr("class", "y-axis")
         .call(d3.axisLeft(y));
 });
+
+/* Smallest Attacking Army
+   ========================================================================== */
