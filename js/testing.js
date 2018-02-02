@@ -40,7 +40,7 @@ function prettify(m){
 //---------loading battle csv file----------
 // use local file
 var battles ="data/battles.csv";
-
+// get the csv file
 d3.csv(battles, function(error, data) {
     data.forEach(function(d) {
         d.battle_number = +d.battle_number;
