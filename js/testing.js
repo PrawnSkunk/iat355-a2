@@ -13,11 +13,10 @@ d3.csv("data/battles.csv", function(data) {
 /* Q2: Sum
    ========================================================================== */
 
-d3.csv("data/character-deaths.csv",function(data){
-    var count = 0;
-    var length = data.length;
-    for (var i = 0; i < length; i++) count++;
-    q2 = d3.select('.chart-container').append("p").html('<strong>Q2. Sum:</strong><hr/>' + count + ' major character deaths.<br/><br/>');
+d3.csv("data/battles.csv",function(data){
+    var sum_major_deaths =  d3.sum(data, function(d) { return +d.major_death });
+    var total_battles = d3.sum(data, function(d) { return 1 });
+    d3.select('.chart-container').append("p").html('<strong>Q2. Sum:</strong><hr/>' + sum_major_deaths + ' of ' + total_battles + ' battles with main character deaths.<br/><br/>');
 });
 
 
