@@ -138,7 +138,7 @@ d3.csv("data/battles.csv", function(error, data) {
         return d.name;
     }));
 
-    y.domain([0, 10000]);
+    y.domain([0, 2000]);
 
     // Append the rectangles for the bar chart
     svg2.selectAll(".bar")
