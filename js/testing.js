@@ -33,11 +33,6 @@ function prettify(m){
 
 }
 
-function numberWithCommas(n) {
-    var parts=n.toString().split(".");
-    return parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, ",") + (parts[1] ? "." + parts[1] : "");
-}
-
 //
 // console.log("test123");
 // console.log([1,3,4]);
@@ -46,12 +41,23 @@ function numberWithCommas(n) {
 //---------loading battle csv file----------
 // get the csv file
 d3.csv("data/battles.csv", function(data) {
-
+    // ".toLocaleString()" means format as "10,000" instead of 10000
     var max_defender = d3.max(data, function(d) { return +d.defender_size;} );
-    console.log("The largest defending army was " + max_defender);
+    console.log("Q1. Maximum: The largest defending army was " + max_defender.toLocaleString());
 
-    var min_attacker=  d3.min(data, function(d) { return +d.attacker_size; });
-    console.log("The smallest attacking army was " + min_attacker);
+    // "|| Infinity" means "smallest value that is not zero"
+    var min_attacker=  d3.min(data, function(d) { return +d.attacker_size || Infinity; });
+    console.log("Q2. Minimum: The smallest attacking army was " + min_attacker.toLocaleString());
+});
+
+d3.csv("data/character-deaths.csv", function(data) {
+    // Reduce function counts strings in an array (NOT object)
+    var sum_allegiances = d3.values(data)
+        .map(function(d) { return d.Allegiances; })
+        .reduce(function (e, a) {
+            return e + (a === 'House Stark');
+        }, 0);
+    console.log("Q4. Dimension Criterion: " + sum_allegiances + " major character deaths allegiant to House Stark.")
 });
 
 //---------loading character deaths csv file----------
