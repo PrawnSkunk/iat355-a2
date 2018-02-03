@@ -46,11 +46,11 @@ function numberWithCommas(n) {
 //---------loading battle csv file----------
 // get the csv file
 d3.csv("data/battles.csv", function(data) {
-
     var max_defender = d3.max(data, function(d) { return +d.defender_size;} );
     console.log("The largest defending army was " + max_defender);
 
-    var min_attacker=  d3.min(data, function(d) { return +d.attacker_size; });
+    // "|| Infinity" means "smallest value that is not zero"
+    var min_attacker=  d3.min(data, function(d) { return +d.attacker_size || Infinity; });
     console.log("The smallest attacking army was " + min_attacker);
 });
 
