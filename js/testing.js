@@ -55,6 +55,35 @@ d3.csv("data/battles.csv", function(data) {
 });
 
 //---------loading character deaths csv file----------
+
+d3.csv("data/character-deaths.csv",function(data){
+    var count = 0;
+    var length = data.length;
+
+    for (var i = 0; i < length; i++)
+    {
+
+            count++;
+    }
+
+    console.log('Total number of People Died: ' + count);
+})
+
+
+// d3.csv("data/character-deaths.csv", function(d) {
+//     return {
+//         name: +d.name
+//     };
+// }, function(error,rows) {
+//     var counts = {};
+//     rows.forEach(function(r) {
+//         r.name++;
+//     });
+//
+//     console.log("name: "+ name);
+//
+// });
+
 // use local file
 
 // d3.csv(battles, function(d) {
