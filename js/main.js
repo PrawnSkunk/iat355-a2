@@ -165,14 +165,13 @@ d3.csv("data/battles.csv", function(error, data) {
 
     // Format the data
     data.forEach(function(d) {
-        // Use unary plus operator (+) to convert strings to numbers
-        d.attacker_size = +d.attacker_size;
+            // Use unary plus operator (+) to convert strings to numbers
+            d.attacker_size = +d.attacker_size;
     });
 
     // Sort the data by defender size
     data.sort(function(a, b) {
         return a.attacker_size- b.attacker_size;
-
     });
 
 
@@ -180,10 +179,11 @@ d3.csv("data/battles.csv", function(error, data) {
     // Scale the range of the data in the domains
 
     x.domain(data.map(function(d) {
+        if (d.attacker_size > 0)
         return d.name;
     }));
 
-    y.domain([0, 2000]);
+    y.domain([0, 3200]);
 
     // Append the rectangles for the bar chart
     svg2.selectAll(".bar")
@@ -217,37 +217,5 @@ d3.csv("data/battles.csv", function(error, data) {
     svg2.append("g")
         .attr("class", "y-axis")
         .call(d3.axisLeft(y));
-
-    // printing the data
-    // var sub_header= d3.select('.chart-container').append("h4")
-    //     .text("The Attacker Size Information: ");
-    //
-    // var min_attacker = d3.select('.chart-container').append("p")
-    //     .text("Smallest Attacker Army size is "+d3.min(data,function(d){return d.attacker_size;}));
-    // var max_attacker = d3.select('.chart-container').append("p")
-    //     .text("Largerst Attacker Army size is "+d3.max(data,function(d){return d.attacker_size;}));
-    // var mean_attacker = d3.select('.chart-container').append("p")
-    //     .text("Average Attacker Army size is "+d3.mean(data,function(d){return d.attacker_size;}));
-    // var sum_attacker = d3.select('.chart-container').append("p")
-    //     .text("Total combined Attacker Army size of all regions is "+d3.sum(data,function(d){return d.attacker_size;}));
-    // var mean_attacker = d3.select('.chart-container').append("p")
-    //     .text("Average Attacker Army size is "+d3.mean(data,function(d){return d.attacker_size;}));
-    //
-    // var sub_header= d3.select('.chart-container').append("h4")
-    //     .text("The Defender Size Information: ");
-    //
-    // var min_attacker = d3.select('.chart-container').append("p")
-    //     .text("Smallest Defender Army size is "+d3.min(data,function(d){return d.defender_size;}));
-    // var max_attacker = d3.select('.chart-container').append("p")
-    //     .text("Largerst Defender Army size is "+d3.max(data,function(d){return d.defender_size;}));
-    // var mean_attacker = d3.select('.chart-container').append("p")
-    //     .text("Average Defender Army size is "+d3.mean(data,function(d){return d.defender_size;}));
-    // var sum_attacker = d3.select('.chart-container').append("p")
-    //     .text("Total combined defender Army size of all regions is "+d3.sum(data,function(d){return d.defender_size;}));
-    // var mean_attacker = d3.select('.chart-container').append("p")
-    //     .text("Average Defender Army size is "+d3.mean(data,function(d){return d.defender_size;}));
-
-
-
 });
 
